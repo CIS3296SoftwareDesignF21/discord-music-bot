@@ -10,7 +10,7 @@ UNLIKE listening to music via separete tabs (in the browser) or applications on 
 OUR PRODUCT will reduce context switching for those who want to listen to music while using Discord.
 
 ## Personas
-- 1:
+- 1: Designated Peak XV, age 28, is a traveling DJ based out of Philadelphia. She uses Discord to stay connected with her peers and fans. She likes to be able to share her creations and listen to other's sets wherever she goes. She currently uses SoundCloud to share and explore sets. SoundCloud now requires paid subscription for ad-free listening. She is open to using the Discord Music Bot if she can play, pause, and add music to queue sets.
 - 2:
 - 3: 
 
