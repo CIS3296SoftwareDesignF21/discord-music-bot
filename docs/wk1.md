@@ -4,7 +4,7 @@
 - Written:: Project Board, Todo cards, Persona 3
 - Code:: Sign up for Autocode
 ### Fay:
-- Written:: ReadMe, Project Issues, Persona 1, Explore discord-bot repo documentation, discord bot api, Autocode browswer IDE
+- Written:: ReadMe, Project Issues, Vision Stmt, Persona 1, Explore discord-bot repo documentation, discord bot api, Autocode browswer IDE
 - Code:: Discord Server, Discord-Music-Bot Template, Integration configurations
 ### Songyuan
 - Written:: Persona 2
