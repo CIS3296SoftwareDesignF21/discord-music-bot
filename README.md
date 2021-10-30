@@ -48,6 +48,9 @@ Create a bot, you can follow either tutorial [DiscordJS Guide](https://discordjs
 
 
 
+# Installing
+Please follow the readme instructions for [discordjs](https://github.com/discordjs/discord.js)
+
 # Troubleshooting
 
 This app uses the [ytdl-core](https://github.com/fent/node-ytdl-core) npm package
