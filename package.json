@@ -1,0 +1,11 @@
+{
+  "name": "fast-music-bot",
+  "author": "Team discord-music-bot",
+  "publish": false,
+  "dependencies": {
+    "lib": "latest",
+    "ytdl-core": "^4.9.1",
+    "yt-search": "^2.10.2",
+    "discord.js": "^13.2.0"
+  }
+}
