@@ -1,5 +1,9 @@
-# Discord Music Bot aka fast-music-bot
-Incase your wondering, `fast` stands for Fay Alex Shuang Temple. Speed is not guaranteed by our little bot, but it's best efforts to be your personal music manager is! 
+# Discord Music Bot 🤖
+TLDR `fast-music-bot#8003`
+
+Incase your wondering, `fast` stands for Fay, Alex, Shuang Temple. 
+⚠️ Speed is not guaranteed by our little bot, 
+but it's best efforts to be your personal music manager is 🎧 ⏯️ 🎵
 
 ### What Is This App, you ask?
 This app allows you to play audio tracks in a Discord voice channel
@@ -39,7 +43,7 @@ clicking a voice channel in your server with developer mode enabled:
 
 <!-- TODO add <img src="./readme-gallery/copy-voice-channel-id.png" style="max-width: 60%"> -->
 
-If you need help enabling developer mode, [see this section of the official guide](https://autocode.com/guides/how-to-build-a-discord-bot/#faq-1).
+If you need help enabling developer mode, [see the readme](https://github.com/gregjw/build-a-discord-bot).
 
 Otherwise, you just need to pick a prefix for your bot, and you're all set!
 
@@ -61,6 +65,9 @@ _(notice we have our variable set to `bi` right now)_
 - `!help`: Bring up help menu
 
 Queued tracks automatically play when the last track finishes.
+
+# Installing
+Please follow the readme instructions for [discordjs](https://github.com/discordjs/discord.js)
 
 # Troubleshooting
 
