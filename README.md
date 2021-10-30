@@ -1,5 +1,22 @@
-# Project 
-Discord Music Bot 🎵 
+# Discord Music Bot 🤖
+TLDR `fast-music-bot#8003`
+
+Incase your wondering, `fast` stands for Fay, Alex, Shuang Temple. 
+⚠️ Speed is not guaranteed by our little bot, 
+but it's best efforts to be your personal music manager is 🎧 ⏯️ 🎵
+
+### What Is This App, you ask?
+This app allows you to play audio tracks in a Discord voice channel
+of your choice:
+
+<!-- TODO add <img src="./readme-gallery/play-track.png" style="max-width: 60%"> -->
+
+It also contains a simple system for queueing tracks in advance:
+
+<!-- TODO add <img src="./readme-gallery/enqueue-track-screenshot.png" style="max-width: 60%"> -->
+
+You can search for tracks or enter a direct YouTube link!
+🎵 
 
 ## Vision Statement
 FOR Discord Server Suscribers 
@@ -16,8 +33,49 @@ OUR PRODUCT will reduce context switching for those who want to listen to music 
 
 #### Initial Proposal: 
 - [feedback on proposal](https://github.com/CIS3296SoftwareDesignF21/feedback-on-proposals-section-001-m-w-11-am/issues/18)
+
+
+# How to Setup
+
+The only required setup is to get the id of a voice channel you would like to
+designate as your server's "radio channel". You can find this id by right
+clicking a voice channel in your server with developer mode enabled:
+
+<!-- TODO add <img src="./readme-gallery/copy-voice-channel-id.png" style="max-width: 60%"> -->
+
+If you need help enabling developer mode, [see the readme](https://github.com/gregjw/build-a-discord-bot).
+
+Otherwise, you just need to pick a prefix for your bot, and you're all set!
+
+# Prefix Commands
+
+All commands are shown with `!` as a prefix, but you can set whatever you'd like
+during setup or afterwards by modifying the `PREFIX` environment variable. 
+_(notice we have our variable set to `bi` right now)_
+
+- `!play <query>`: Play or search for a track
+- `!play` Resume a paused track or play the latest track from the queue if the player is disconnected
+- `!pause`: Pause the currently playing track
+- `!disconnect`: Disconnect the bot from the voice channel
+- `!nowplaying`: Retrieve the current track and queued tracks
+- `!queue`: Same as `!nowplaying`
+- `!enqueue <query>`: Add a track to the queue
+- `!skip`: Skip currently playing track and play the next track in the queue
+- `!clearqueue`: Clear the current queue
+- `!help`: Bring up help menu
+
+Queued tracks automatically play when the last track finishes.
+
+# Installing
+Please follow the readme instructions for [discordjs](https://github.com/discordjs/discord.js)
+
+# Troubleshooting
+
+This app uses the [ytdl-core](https://github.com/fent/node-ytdl-core) npm package
+to stream from YouTube, which is frequently updated as YouTube makes changes. 
+If your bot has issues downloading a particular track, try again later or check 
+for an updated version of the dependency.
+
+### Thank You!
+
 # How to Run
-
-# How to Install
-
-
