@@ -1,4 +1,3 @@
-const lib = require('lib')({token: ${{secrets.STDLIB_SECRET_TOKEN}});
 const helpers = require('../../../../helpers/shared.js');
 
 let nextTrack = await helpers.dequeueTrack(context.params.event);
