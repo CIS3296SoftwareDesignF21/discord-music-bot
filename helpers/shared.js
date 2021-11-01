@@ -3,7 +3,7 @@ const ytdl = require('ytdl-core');
 const yts = require('yt-search');
 
 const client = new Discord.Client();
-client.login(process.env.DC_CLIENT_TOKEN);
+client.login(${{secrets.DISCORD_CLIENT_TOKEN}});
 
 module.exports = {
   play: async (event, searchString, sendErrorToChannel) => {
