@@ -5,7 +5,7 @@
 - Code:: Sign up for Autocode, reviewed and merged PRs
 ### Fay:
 - Written:: ReadMe, Project Issues, Vision Stmt, Persona 1, Explore discord-bot repo documentation, discord bot api, audit Autocode browswer IDE.
-- Code:: Discord Server, Discord-Music-Bot Template, Integration configurations to Github
+- Code:: Discord Server, Discord-Music-Bot Template (issue #11), Integration configurations to Github
 ### Songyuan
 - Written:: Persona 2
 - Code::: Sign up for Autocode, reviewed and merged PRs

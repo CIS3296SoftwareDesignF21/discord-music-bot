@@ -1,0 +1,37 @@
+{
+  "name": "fast-music-bot",
+  "timeout": 10000,
+  "connector": false,
+  "events": {
+    "functions/events/discord/bot/playback.js": {
+      "name": "discord.bot.playback"
+    },
+    "functions/events/discord/message/player-controls.js": {
+      "name": "discord.message.create"
+    },
+    "functions/events/discord/message/queue-controls.js": {
+      "name": "discord.message.create"
+    },
+    "functions/events/self/deploy.js": {
+      "name": "autocode.self.deploy"
+    }
+  },
+  "env": [
+    {
+      "name": "RADIO_VOICE_CHANNEL",
+      "description": "Id of the voice channel in your server where the bot should play music"
+    },
+    {
+      "name": "PREFIX",
+      "description": "Your bot's prefix"
+    },
+    {
+      "name": "DC_CLIENT_TOKEN",
+      "description": "Authenticates you with Discord Client"
+    },
+    {
+      "name": "STDLIB_SECRET_TOKEN",
+      "description": "Authenticates you with Autocode Standard Library APIs"
+    }
+  ]
+}
