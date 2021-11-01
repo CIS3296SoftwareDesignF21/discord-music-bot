@@ -6,6 +6,12 @@ const yts = require('yt-search');
 const client = new Discord.Client();
 client.login(process.env.DC_CLIENT_TOKEN);
 
+client.on('message', message => {
+  if (message.content === 'ping') {
+    message.reply('pong');
+  }
+});
+
 module.exports = {
   play: async (event, searchString, sendErrorToChannel) => {
     try {
