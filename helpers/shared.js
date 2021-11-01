@@ -1,3 +1,4 @@
+const lib = require('lib')({token: process.env.STDLIB_SECRET_TOKEN});
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const yts = require('yt-search');
