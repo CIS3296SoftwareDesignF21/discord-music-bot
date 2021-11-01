@@ -58,8 +58,4 @@ module.exports = class extends SlashCommand{
 		
 	}
 	
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> de1b3a1 (fix pause and command attribute access)
