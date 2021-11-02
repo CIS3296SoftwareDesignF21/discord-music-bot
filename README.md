@@ -37,8 +37,14 @@ OUR PRODUCT will reduce context switching for those who want to listen to music 
 
 # How to Setup
 
-The only required setup is to get the id of a voice channel you would like to
-designate as your server's "radio channel". You can find this id by right
+Install all required dependecies with one of the following commands:
+```
+npm install discord.js @discordjs/rest discord-api-types
+yarn add discord.js @discordjs/rest discord-api-types
+pnpm add discord.js @discordjs/rest discord-api-types
+```
+
+Designate a voice channel as your server's "radio channel". You can find this id by right
 clicking a voice channel in your server with developer mode enabled:
 
 <!-- TODO add <img src="./readme-gallery/copy-voice-channel-id.png" style="max-width: 60%"> -->
