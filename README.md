@@ -1,7 +1,7 @@
 # Discord Music Bot 🤖
 TLDR `fast-music-bot#8003`
 
-Incase your wondering, `fast` stands for Fay, Alex, Shuang Temple. 
+Incase your wondering, `fast` stands for Fay, Alex, Song Temple. 
 ⚠️ Speed is not guaranteed by our little bot, 
 but it's best efforts to be your personal music manager is 🎧 ⏯️ 🎵
 
