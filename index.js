@@ -1,4 +1,7 @@
 const { Client, Intents } = require('discord.js');
+const { token } = require('./env.json');
+
+// Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
 client.on('ready', () => {
@@ -13,4 +16,4 @@ client.on('interactionCreate', async interaction => {
   }
 });
 
-client.login(${{secrets.FMB_TOKEN}});
+client.login(token);
