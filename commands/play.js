@@ -2,11 +2,11 @@ const { QueryType } = require('discord-player');
 const { SlashCommand, CommandOptionType } = require('slash-create');
 
 module.exports = class extends SlashCommand{
-	
+	//creator is client obj
 	constructor(creator) {
 		super(creator, {
 			name: 'play',
-			aliases: ['p'],
+			group: 'commands',
 			description: 'Play a song',
 			options: [ {
 				name: 'query',
@@ -18,7 +18,7 @@ module.exports = class extends SlashCommand{
 			guildIDs: process.env.DISCORD_GUILD_ID ? [ process.env.DISCORD_GUILD_ID ] : undefined
 		});	
 	}
-	
+	// ctx is message obj
 	async run (ctx) {
 		
 		const { client } = require('..');
@@ -46,6 +46,7 @@ module.exports = class extends SlashCommand{
 		
 		const member = guild.members.cache.get(ctx.user.id) ?? await guild.members.fetch(ctx.user.id);
 		try {
+			//connect to voice channel
 			if (!queue.connection) await queue.connect(member.voice.channel);
 		} catch {
 			void client.player.deleteQueue(ctx.guildID);
