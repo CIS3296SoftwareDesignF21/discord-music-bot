@@ -48,6 +48,9 @@ Create a bot, you can follow either tutorial [DiscordJS Guide](https://discordjs
 
 
 
+# Installing
+Please follow the readme instructions for [discordjs](https://github.com/discordjs/discord.js)
+
 # Troubleshooting
 
 This app uses the [ytdl-core](https://github.com/fent/node-ytdl-core) npm package
@@ -55,8 +58,25 @@ to stream from YouTube, which is frequently updated as YouTube makes changes.
 If your bot has issues downloading a particular track, try again later or check 
 for an updated version of the dependency.
 
-### Thank You!
+### UML
+
+![bot_uml drawio](https://user-images.githubusercontent.com/65259858/140856874-4c01a86e-ff73-4672-a336-a98a2d0a62b8.png)
 
 # How to Run
 `node main.js`
+
+
+# Prefix Commands
+
+All commands are shown with `/` as a prefix
+
+- `/play <query>`: Play or search for a track
+- `/play` Resume a paused track or play the latest track from the queue if the player is disconnected
+- `/pause`: Pause the currently playing track
+- `/leave`: Disconnect the bot from the voice channel
+- `/nowplaying`: Retrieve the current track and queued tracks
+- `/skip`: Skip currently playing track and play the next track in the queue
+- `/help`: Bring up help menu
+
+Queued tracks automatically play when the last track finishes.
 
