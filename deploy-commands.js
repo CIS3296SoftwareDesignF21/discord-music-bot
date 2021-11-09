@@ -28,17 +28,25 @@ const commands = [
 				required: true
 			}
 		]
+	},
+	{
+		name: "leave",
+		description: "Kick bot from channel.",
+	},
+	{
+		name: "help",
+		description: "Displays help menu.",
 	}
 ];
-// const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+//const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 const clientId = process.env.clientId;
 const guildId = process.env.guildId;
 
-// for (const file of commandFiles) {
+//for (const file of commandFiles) {
 // 	const command = require(`./commands/${file}`);
 // 	commands.push(command.data.toJSON());
-// }
+//}
 
 const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
 

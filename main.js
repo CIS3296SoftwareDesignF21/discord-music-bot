@@ -9,12 +9,14 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
-	client.commands.set(command.data.name, command);
+	client.commands.set(command.data, command);
 }
 
 client.once('ready', () => {
 	console.log('Ready!');
 });
+
+
 
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
