@@ -1,0 +1,19 @@
+title Discord-Music-Bot
+
+actor Discord User
+Discord User->f-m-b Discord Server: join server
+Discord User<#green--f-m-b Discord Server: authenticate user
+Discord User->fast-music-bot: send slash-command message request
+fast-music-bot<#green--f-m-b Discord Server: authenticate fast-music-bot on f-m-b Server
+
+fast-music-bot->Discord Client:bot requests create client from discord.js
+fast-music-bot->fs: Collect and find javascript commands  
+fs<<--fs: package and expose commands
+fast-music-bot<-Discord Client:output "Ready!"
+Discord Userx#red-Discord Client: This interaction failed
+fast-music-bot->f-m-b Discord Server: join voice channel request
+fast-music-bot-#redxf-m-b Discord Server: error joining
+fast-music-bot<-f-m-b Discord Server: join voice channel
+fast-music-bot->Discord Client: send user slash-command message request
+fast-music-bot<-Discord Client: send Follow Up message
+fast-music-bot->Discord Client: Login fast-music-bot application
