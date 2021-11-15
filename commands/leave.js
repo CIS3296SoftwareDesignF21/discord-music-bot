@@ -1,17 +1,11 @@
-const { SlashCommand, CommandOptionType } = require('slash-create');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
-module.exports = class extends SlashCommand {
-    
-    constructor(creator) {
-		super(creator, {
-			name: 'leave',
-			aliases: ['l'],
-			description: 'Bot leaves channel',
-            
-			guildIDs: process.env.DISCORD_GUILD_ID ? [ process.env.DISCORD_GUILD_ID ] : undefined
-		});	
-	}
-    async run(ctx) {
+
+module.exports = {
+    data: new SlashCommandBuilder()
+		.setName('leave')
+		.setDescription('Bot leaves current channel.'),
+    async execute(interaction) {
         const { client } = require('..');
 		await ctx.defer();
 		

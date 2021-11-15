@@ -1,34 +1,12 @@
-const { SlashCommand, CommandOptionType } = require('slash-create');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const Discord = require('discord.js');
 
-module.exports = class extends SlashCommand{
-	
-	constructor(creator) {
-		super(creator, {
-			name: 'help',
-			aliases: ['h'],
-			description: 'Displays help menu',
-			
-			guildIDs: process.env.DISCORD_GUILD_ID ? [ process.env.DISCORD_GUILD_ID ] : undefined
-		});	
-	}
-
-    async run(bot, message, args)
+module.exports = {
+	data: new SlashCommandBuilder()
+		.setName('help')
+		.setDescription('Displays all available commands.'),
+    async execute(interaction)
     {
-        const help = new Discord.MessageEmbed()
-        .setColor("AQUA")
-        .setTitle('Prefix: `/`')
-        .setAuthor("Command List", message.author.displayAvatarURL())
-        .addFields({
-            name: 'help',
-            value: 'displays the help menu',
-            name: 'play <query>',
-            value: 'Plays specified song by /nYouTube link or by search terms',
-            name: 'pause',
-            value: 'Pauses current song',
-            name: 'leave',
-            value: 'Makes bot leave channel'
-        },)
-        message.channel.send(help)
+        interaction.reply('/help\n  Displays the help menu\n/play <query>\n Plays specified song by YouTube link or by search terms\n/pause\n   Pauses current song\n/leave\n   Makes bot leave channel');
     }
 };
