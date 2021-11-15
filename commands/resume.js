@@ -17,9 +17,9 @@ module.exports = class extends SlashCommand {
         await ctx.defer();
 		
 		const queue = client.player.getQueue(ctx.guildID);
-		if (!queue || !queue.playing) return void ctx.sendFollowUp({ content: '? | No music is being played!' });
+		if (!queue || !queue.playing) return void ctx.sendFollowUp({ content: '❌| No music is being played!' });
 		const paused = queue.setPaused(false);
-		return void ctx.sendFollowUp({ content: paused ? '? | Resumed!' : '? | Something went wrong!' });
+		return void ctx.sendFollowUp({ content: paused ? '▶ | Resumed!' : '❌ | Something went wrong!' });
 		
     }
 };
