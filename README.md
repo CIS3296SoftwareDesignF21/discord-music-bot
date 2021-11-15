@@ -63,6 +63,7 @@ for an updated version of the dependency.
 ![bot_uml drawio](https://user-images.githubusercontent.com/65259858/140856874-4c01a86e-ff73-4672-a336-a98a2d0a62b8.png)
 
 ### [Sequence Diagram](docs/fast-music-bot_v1.0.0.txt)
+![fast-music-bot_v1 0 0](https://user-images.githubusercontent.com/73084642/141823510-f9e3d074-47cd-4602-ae08-aff2309633da.png)
 
 
 # How to Run
