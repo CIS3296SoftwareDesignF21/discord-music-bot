@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { GuildMember } = require("discord-player");
+const { QueryType } = require('discord-player');
 const ytdl = require('ytdl-core');
 const ytSearch = require('yt-search');
 
@@ -9,40 +9,73 @@ module.exports = {
 		.setName('play')
 		.setDescription('Plays song to channel.')
 		.addStringOption(options => options.setName('query').setDescription('The song you want to play.').setRequired(false)),
-		guildIDs: process.env.DISCORD_GUILD_ID ? [ process.env.DISCORD_GUILD_ID ] : undefined,
-		async execute (ctx) {
-
-			const { client } = require('..');
-	
-			await ctx.defer();
-	
-			const guild = client.guilds.cache.get(ctx.guildID);
-			const channel = guild.channels.cache.get(ctx.channelID);
-			const query = ctx.options.query;
-			const searchResult = await client.player
-				.search(query, {
-					requestedBy: ctx.user,
-					searchEngine: QueryType.AUTO
-				})
-				.catch(() => {
-					console.log('he');
-				});
-			if (!searchResult || !searchResult.tracks.length) return void ctx.sendFollowUp({ content: 'No results were found!' });
-	
-			const queue = await client.player.createQueue(guild, {
-				metadata: channel
-			});
-	
-			const member = guild.members.cache.get(ctx.user.id) ?? await guild.members.fetch(ctx.user.id);
+		//guildIDs: process.env.DISCORD_GUILD_ID ? [ process.env.DISCORD_GUILD_ID ] : undefined,
+		async execute(interaction, player) {
 			try {
-				if (!queue.connection) await queue.connect(member.voice.channel);
-			} catch {
-				void client.player.deleteQueue(ctx.guildID);
-				return void ctx.sendFollowUp({ content: 'Could not join your voice channel!' });
+			  if (!interaction.member.voice.channel) {
+				return void interaction.reply({
+				  content: 'You are not in a voice channel!',
+				  ephemeral: true,
+				});
+			  }
+		
+			  if (
+				interaction.guild.me.voice.channelId &&
+				interaction.member.voice.channelId !== interaction.guild.me.voice.channelId
+			  ) {
+				return void interaction.reply({
+				  content: 'You are not in my voice channel!',
+				  ephemeral: true,
+				});
+			  }
+		
+			  await interaction.deferReply();
+		
+			  const query = interaction.options.get('query').value;
+			  if(interaction.options.get('query').value === null) {
+				return void interaction.reply({
+					content: 'No search entered.',
+					ephemeral: true,
+				});
 			}
-	
-			await ctx.sendFollowUp({ content: `⏱ | Loading your ${searchResult.playlist ? 'playlist' : 'track'}...` });
-			searchResult.playlist ? queue.addTracks(searchResult.tracks) : queue.addTrack(searchResult.tracks[0]);
-			if (!queue.playing) await queue.play();
-		}
-	};
+			  const searchResult = await player
+				.search(query, {
+				  requestedBy: interaction.user,
+				  searchEngine: QueryType.AUTO,
+				})
+				.catch(() => {});
+			  if (!searchResult || !searchResult.tracks.length)
+				return void interaction.followUp({content: 'No results were found!'});
+		
+			  const queue = await player.createQueue(interaction.guild, {
+				ytdlOptions: {
+						quality: "highest",
+						filter: "audioonly",
+						highWaterMark: 1 << 25,
+						dlChunkSize: 0,
+					},
+				metadata: interaction.channel,
+			  });
+		
+			  try {
+				if (!queue.connection) await queue.connect(interaction.member.voice.channel);
+			  } catch {
+				void player.deleteQueue(interaction.guildId);
+				return void interaction.followUp({
+				  content: 'Could not join your voice channel!',
+				});
+			  }
+		
+			  await interaction.followUp({
+				content: `⏱ | Loading your ${searchResult.playlist ? 'playlist' : 'track'}...`,
+			  });
+			  searchResult.playlist ? queue.addTracks(searchResult.tracks) : queue.addTrack(searchResult.tracks[0]);
+			  if (!queue.playing) await queue.play();
+			} catch (error) {
+			  console.log(error);
+			  interaction.followUp({
+				content: 'There was an error trying to execute that command: ' + error.message,
+			  });
+			}
+		  },
+		};
