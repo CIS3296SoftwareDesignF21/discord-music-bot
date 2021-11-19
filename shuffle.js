@@ -17,5 +17,5 @@ module.exports = {
         
         await queue.shuffle();
         ctx.sendFollowUp({ content: '✅ | Queue has been shuffled!' });
-    }
+    },
 };
