@@ -41,5 +41,5 @@ module.exports = {
         const success = queue.setRepeatMode(loopMode);
         const mode = loopMode === QueueRepeatMode.TRACK ? '🔂' : loopMode === QueueRepeatMode.QUEUE ? '🔂' : '▶';
         return void ctx.sendFollowUp({ content: success ? `${mode} | Updated loop mode!` : '❌・| Could not update loop mode!' });
-    }
+    },
 };
