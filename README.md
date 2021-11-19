@@ -80,6 +80,10 @@ All commands are shown with `/` as a prefix
 - `/play` Resume a paused track or play the latest track from the queue if the player is disconnected
 - `/pause`: Pause the currently playing track
 - `/leave`: Disconnect the bot from the voice channel
+- `/resume`: Resume the current song 
+- `/queue`: View the song queue
+- `/shuffle`: Shuffle the queue
+- `/loop`: Set loop mode
 - `/nowplaying`: Retrieve the current track and queued tracks
 - `/skip`: Skip currently playing track and play the next track in the queue
 - `/help`: Bring up help menu
