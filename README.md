@@ -57,6 +57,7 @@ If your bot has issues downloading a particular track, try again later or check
 for an updated version of the dependency.
 
 ### UML
+![UMLClass_v1 0 2](https://user-images.githubusercontent.com/73084642/143722536-57752fab-f73d-40a7-8719-f197bb8e995c.png)
 
 ![bot_uml drawio](https://user-images.githubusercontent.com/65259858/140856874-4c01a86e-ff73-4672-a336-a98a2d0a62b8.png)
 
