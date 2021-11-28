@@ -7,12 +7,12 @@ module.exports = {
 	async execute(interaction) {
 		
 		const { client } = require('..');
-		await ctx.defer();
+		await interaction.defer();
 		
-		const queue = await client.player.getQueue(ctx.guildID);
-		if (!queue || !queue.playing) return void ctx.sendFollowUp({ content: '? | No music is being played!' });
+		const queue = await client.player.getQueue(interaction.guildID);
+		if (!queue || !queue.playing) return void interaction.sendFollowUp({ content: '? | No music is being played!' });
 		const paused = queue.setPaused(true);
-		await ctx.sendFollowUp({ content: paused ? "⏸ | Paused!" : "❌ | Something went wrong!" });
+		await interaction.sendFollowUp({ content: paused ? "⏸ | Paused!" : "❌ | Something went wrong!" });
 		
 	},
 };
