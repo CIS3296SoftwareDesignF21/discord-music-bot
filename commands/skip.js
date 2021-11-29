@@ -1,7 +1,11 @@
 const { GuildMember } = require('discord.js');
 
 module.exports = {
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 0ff7821c9343ac284ce0cf218077c55c6460fdb6
 	name: 'skip',
 	description: 'Skip to the current song',
 	async execute(interaction, player) {
@@ -11,7 +15,11 @@ module.exports = {
 				ephemeral: true,
 			});
 		}
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> 0ff7821c9343ac284ce0cf218077c55c6460fdb6
 		if (
 			interaction.guild.me.voice.channelId &&
 			interaction.member.voice.channelId !== interaction.guild.me.voice.channelId
@@ -21,7 +29,11 @@ module.exports = {
 				ephemeral: true,
 			});
 		}
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> 0ff7821c9343ac284ce0cf218077c55c6460fdb6
 		await interaction.deferReply();
 		const queue = player.getQueue(interaction.guildId);
 		if (!queue || !queue.playing)
@@ -35,4 +47,8 @@ module.exports = {
 	},
 
 
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 0ff7821c9343ac284ce0cf218077c55c6460fdb6
