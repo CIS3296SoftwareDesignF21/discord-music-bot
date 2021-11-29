@@ -1,12 +1,20 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const Discord = require('discord.js');
+const fs = require('fs');
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('help')
-		.setDescription('Displays all available commands.'),
-    async execute(interaction)
-    {
-        interaction.reply('/help\n  Displays the help menu\n/play <query>\n Plays specified song by YouTube link or by search terms\n/pause\n   Pauses current song\n/leave\n   Makes bot leave channel');
+  name: 'help',
+  description: 'List all available commands.',
+  execute(interaction) {
+    let str = '';
+    const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+    for (const file of commandFiles) {
+      const command = require(`./${file}`);
+      str += `Name: ${command.name}, Description: ${command.description} \n`;
     }
+
+    return void interaction.reply({
+      content: str,
+      ephemeral: true,
+    });
+  },
 };

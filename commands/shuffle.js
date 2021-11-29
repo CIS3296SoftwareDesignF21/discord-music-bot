@@ -1,8 +1,8 @@
 const {GuildMember} = require('discord.js');
 
 module.exports = {
-  name: 'pause',
-  description: 'Pause current song!',
+  name: 'shuffle',
+  description: 'shuffle the queue!',
   async execute(interaction, player) {
     if (!(interaction.member instanceof GuildMember) || !interaction.member.voice.channel) {
       return void interaction.reply({
@@ -23,13 +23,26 @@ module.exports = {
 
     await interaction.deferReply();
     const queue = player.getQueue(interaction.guildId);
-    if (!queue || !queue.playing)
+    if (!queue || !queue.playing) return void interaction.followUp({content: '❌ | No music is being played!'});
+    try {
+      queue.shuffle();
+      trimString = (str, max) => (str.length > max ? `${str.slice(0, max - 3)}...` : str);
       return void interaction.followUp({
-        content: '❌ | No music is being played!',
+        embeds: [
+          {
+            title: 'Now Playing',
+            description: trimString(
+              `The Current song playing is 🎶 | **${queue.current.title}**! \n 🎶 | ${queue}! `,
+              4095,
+            ),
+          },
+        ],
       });
-    const success = queue.setPaused(true);
-    return void interaction.followUp({
-      content: success ? '⏸ | Paused!' : '❌ | Something went wrong!',
-    });
+    } catch (error) {
+      console.log(error);
+      return void interaction.followUp({
+        content: '❌ | Something went wrong!',
+      });
+    }
   },
 };
