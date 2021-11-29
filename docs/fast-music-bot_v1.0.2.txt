@@ -1,0 +1,29 @@
+title Discord-Music-Bot Command Execute Flow
+
+participant "**Discord Server** ++f-m-b++//" as f-m-b Discord Server
+actor Discord User
+participant "**Main**" as Main
+participant "**Client**" as Discord Client
+participant "**command file**" as Command
+
+
+
+entryspacing 0.8
+Main->Discord Client: new Client()
+Main->>fs: readirSync(commands).filter(command file)
+Main->Collection: new Collection()
+Collection-->Discord Client: client.commands
+
+Command->>fs: new SlashCommandBuilder()
+fs<->fs: export command module
+Main->Collection: commands.push(command file)
+Main->Discord Client: client.commands.set(commandName, command)
+Discord Client->Rest: new Rest().setToken(OAuthToken)
+Discord Client-->f-m-b Discord Server: client.once(async(rest.put(clientId, commands))
+
+Discord User->Main: `/commandName`
+Main->Discord Client: client.on(commands.get(commandObj))
+Main<-Discord Client: client.on(command.execute(commandObj))
+
+Main->Discord Client: client.login(OAuth2Token)
+

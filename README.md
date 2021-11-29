@@ -1,22 +1,15 @@
 # Discord Music Bot 🤖
 TLDR `fast-music-bot#8003`
-
-Incase your wondering, `fast` stands for Fay, Alex, Song Temple. 
+ 
 ⚠️ Speed is not guaranteed by our little bot, 
 but it's best efforts to be your personal music manager is 🎧 ⏯️ 🎵
 
 ### What Is This App, you ask?
-This app allows you to play audio tracks in a Discord voice channel
-of your choice:
+This app allows you to play audio tracks in a Discord voice channel while on a server
+of your choice.
 
-<!-- TODO add <img src="./readme-gallery/play-track.png" style="max-width: 60%"> -->
-
-It also contains a simple system for queueing tracks in advance:
-
-<!-- TODO add <img src="./readme-gallery/enqueue-track-screenshot.png" style="max-width: 60%"> -->
-
-You can search for tracks or enter a direct YouTube link!
-🎵 
+### What is it capable of?
+One use case: As a Discord user I can search for tracks or enter a direct YouTube link using a slash-command 🎵 
 
 ## Vision Statement
 FOR Discord Server Suscribers 
@@ -34,17 +27,22 @@ OUR PRODUCT will reduce context switching for those who want to listen to music 
 #### Initial Proposal: 
 - [feedback on proposal](https://github.com/CIS3296SoftwareDesignF21/feedback-on-proposals-section-001-m-w-11-am/issues/18)
 
+### Testing Feedback 1:
+Students explored the project and followed the README, their response are recorded in [rows 4:6](https://docs.google.com/spreadsheets/d/1jYA9q4IabKIgjCqV96hwbRkkyF9oupQqQQzoWI47qqI/edit#gid=0)
+
 
 # How to Setup / Install
 
 Install all required dependecies with one of the following commands:
 ```
-npm install discord.js @discordjs/rest discord-api-types
+npm install discord.js @discordjs/rest discord-api-types @discordjs/builders
 yarn add discord.js @discordjs/rest discord-api-types
 pnpm add discord.js @discordjs/rest discord-api-types
 ```
 
 Create a bot, you can follow either tutorial [DiscordJS Guide](https://discordjs.guide/preparations/#installing-node-js) or [Create Your Own Discord Bot - Youtube](https://www.youtube.com/watch?v=j_sD9udZnCk)
+To customize your commands you can follow,
+[Implementing Slash Commands](https://www.youtube.com/watch?v=JdpJiPlVeaU&t=843s)
 
 
 
@@ -59,11 +57,16 @@ If your bot has issues downloading a particular track, try again later or check
 for an updated version of the dependency.
 
 ### UML
+![UMLClass_v1 0 2](https://user-images.githubusercontent.com/73084642/143722536-57752fab-f73d-40a7-8719-f197bb8e995c.png)
 
 ![bot_uml drawio](https://user-images.githubusercontent.com/65259858/140856874-4c01a86e-ff73-4672-a336-a98a2d0a62b8.png)
 
-### [Sequence Diagram](docs/fast-music-bot_v1.0.0.txt)
+### Sequence Diagram
+![fast-music-bot_v1 0 2](https://user-images.githubusercontent.com/73084642/142554240-e5bedfae-8f31-4901-923a-e256055a2a81.png)
+![fast-music-bot_v1 0 1](https://user-images.githubusercontent.com/73084642/142047698-37c3a0db-ce5d-452a-8d35-f2b5a29beda9.png)
 ![fast-music-bot_v1 0 0](https://user-images.githubusercontent.com/73084642/141823510-f9e3d074-47cd-4602-ae08-aff2309633da.png)
+
+
 
 
 # How to Run
@@ -78,9 +81,14 @@ All commands are shown with `/` as a prefix
 - `/play` Resume a paused track or play the latest track from the queue if the player is disconnected
 - `/pause`: Pause the currently playing track
 - `/leave`: Disconnect the bot from the voice channel
+- `/resume`: Resume the current song 
+- `/queue`: View the song queue
+- `/shuffle`: Shuffle the queue
+- `/loop`: Set loop mode
 - `/nowplaying`: Retrieve the current track and queued tracks
 - `/skip`: Skip currently playing track and play the next track in the queue
 - `/help`: Bring up help menu
+- `/clear <int>`: Clear n number of messages
 
 Queued tracks automatically play when the last track finishes.
 
