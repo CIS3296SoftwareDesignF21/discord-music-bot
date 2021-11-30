@@ -55,7 +55,7 @@ All commands are shown with `/` as a prefix
 - `/skip`: Skip currently playing track and play the next track in the queue
 - `/back`: Play previous song
 - `/help`: Bring up help menu
-- `/clear <int>`: Clear n number of messages
+- `/clear <int>`: Clear up to 100 messages
 
 Queued tracks automatically play when the last track finishes.
 
