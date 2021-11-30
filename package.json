@@ -1,23 +1,30 @@
 {
-  "name": "fast_music_bot",
+  "name": "fast-music-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple discord music bot",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "prettier --write \"**/*.js\""
   },
+  "keywords": [
+    "fast",
+    "music",
+    "bot"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "",
   "dependencies": {
-    "@discordjs/builders": "^0.8.2",
-    "@discordjs/opus": "^0.5.3",
+    "@discordjs/opus": "^0.6.0",
     "@discordjs/rest": "^0.1.0-canary.0",
-    "discord-api-types": "^0.24.0",
+    "@discordjs/voice": "^0.7.5",
     "discord-player": "^5.1.0",
-    "discord.js": "^13.3.1",
-    "dotenv": "^8.6.0",
+    "discord.js": "^13.1.0",
+    "discord.js-search": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.4.0",
-    "slash-create": "^4.3.0",
+    "fluent-ffmpeg": "^2.1.2",
     "yt-search": "^2.10.2",
     "ytdl-core": "^4.9.1"
   }

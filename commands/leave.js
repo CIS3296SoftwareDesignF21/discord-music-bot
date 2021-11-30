@@ -1,22 +1,33 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-
+const {GuildMember} = require('discord.js');
 
 module.exports = {
-    data: new SlashCommandBuilder()
-		.setName('leave')
-		.setDescription('Bot leaves current channel.'),
-    async execute(interaction) {
-        const { client } = require('..');
-		await ctx.defer();
-		
-		const guild = client.guilds.cache.get(ctx.guildID);
-		const channel = guild.channels.cache.get(ctx.channelID);
-
-        const voiceChannel = message.guild.me.voice.channel;
- 
-        if(!voiceChannel) return message.channel.send("You need to be in a voice channel to stop the music!");
-
-        await voiceChannel.leave();
-        await message.channel.send('Leaving channel.')
+  name: 'stop',
+  description: 'Stop all songs in the queue!',
+  async execute(interaction, player) {
+    if (!(interaction.member instanceof GuildMember) || !interaction.member.voice.channel) {
+      return void interaction.reply({
+        content: 'You are not in a voice channel!',
+        ephemeral: true,
+      });
     }
+
+    if (
+      interaction.guild.me.voice.channelId &&
+      interaction.member.voice.channelId !== interaction.guild.me.voice.channelId
+    ) {
+      return void interaction.reply({
+        content: 'You are not in my voice channel!',
+        ephemeral: true,
+      });
+    }
+
+    await interaction.deferReply();
+    const queue = player.getQueue(interaction.guildId);
+    if (!queue || !queue.playing)
+      return void interaction.followUp({
+        content: '❌ | No music is being played!',
+      });
+    queue.destroy();
+    return void interaction.followUp({content: '🛑 | Stopped the player!'});
+  },
 };
