@@ -46,7 +46,7 @@ All commands are shown with `/` as a prefix
 
 - `/play <query>`: Play or search for a track
 - `/pause`: Pause the currently playing track
-- `/leave`: Disconnect the bot from the voice channel
+- `/stop`: Disconnect the bot from the voice channel
 - `/resume`: Resume the current song 
 - `/queue`: View the song queue
 - `/shuffle`: Shuffle the queue
